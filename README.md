@@ -18,7 +18,7 @@ Our bilevel loss balancing pipeline for multi-task learning. First, task losses 
     <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/toy_example.png" width="800">
 </p>
 
-The loss trajectories of a toy 2-task learning problem from \citealt{liu2024famo} and the runtime comparison of different MTL methods for 50000 steps. ★ on the Pareto front denotes the converge points. Although FAMO achieves more balanced results than LS and MGDA, it converges to different points on the Pareto front. Our method reaches the same balanced point with a computational cost comparable to the simple Linear Scalarization (LS). 
+The loss trajectories of a toy 2-task learning problem and the runtime comparison of different MTL methods for 50000 steps. ★ on the Pareto front denotes the converge points. Although FAMO achieves more balanced results than LS and MGDA, it converges to different points on the Pareto front. Our method reaches the same balanced point with a computational cost comparable to the simple Linear Scalarization (LS). 
 
 ---
 
