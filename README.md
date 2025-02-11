@@ -7,7 +7,7 @@ $\mathcal{O}(K)$ in both time and memory, where $K$is the number of tasks. In th
 ---
 
 <p align="center"> 
-    <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/flowchart.pdf" width="800">
+    <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/flowchart.png" width="800">
 </p>
 
 Our bilevel loss balancing pipeline for multi-task learning. First, task losses will be normalized through an initial loss normalization module. Then, the lower-level problem optimizes the model parameter $x^t$ by minimizing the weighted sum of task losses and the upper-level problem optimizes the router model parameter $W^t$ for task balancing.
@@ -15,7 +15,7 @@ Our bilevel loss balancing pipeline for multi-task learning. First, task losses 
 ---
 
 <p align="center"> 
-    <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/toy_example.pdf" width="800">
+    <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/toy_example.png" width="800">
 </p>
 
 The loss trajectories of a toy 2-task learning problem from \citealt{liu2024famo} and the runtime comparison of different MTL methods for 50000 steps. ★ on the Pareto front denotes the converge points. Although FAMO achieves more balanced results than LS and MGDA, it converges to different points on the Pareto front. Our method reaches the same balanced point with a computational cost comparable to the simple Linear Scalarization (LS). 
@@ -23,7 +23,7 @@ The loss trajectories of a toy 2-task learning problem from \citealt{liu2024famo
 ---
 
 <p align="center"> 
-    <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/trainingtime_comparison_4datasets.pdf" width="800">
+    <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/trainingtime_comparison_4datasets.png" width="800">
 </p>
 
 Time scale comparison among well-performing approaches, with LS considered the reference method for standard time.
