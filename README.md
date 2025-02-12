@@ -30,14 +30,14 @@ Time scale comparison among well-performing approaches, with LS considered the r
 
 ---
 
-## Experiment details
-The performance is evaluated under 3 datasets:
+## Datasets
+The performance is evaluated under 4 datasets:
  - Image-level Classification. The [CelebA](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset contains 40 tasks.
  - Regression. The QM9 dataset contains 11 tasks, which can be downloaded automatically from Pytorch Geometric.
  - Dense Prediction. The [NYU-v2](https://github.com/lorenmt/mtan) dataset contains 3 tasks and the [Cityscapes](https://github.com/lorenmt/mtan) dataset (UPDATE: the small version) contains 2 tasks.
 
 
-### Setup Environment
+## Setup Environment
 Create the environment:
 ```
 conda create -n mtl python=3.9.7
@@ -50,3 +50,4 @@ https://github.com/OptMN-Lab/-BiLB4MTL.git
 cd -BiLB4MTL
 python -m pip install -e .
 ```
+
