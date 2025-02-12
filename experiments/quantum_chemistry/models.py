@@ -86,7 +86,7 @@ class Fair_Net(torch.nn.Module):
         #     torch.nn.ReLU(),
         #     torch.nn.Sigmoid()
         # )
-        self.weights = torch.nn.Parameter(torch.ones(11))
+        # self.weights = torch.nn.Parameter(torch.ones(11))
         torch.manual_seed(seed)
         np.random.seed(seed)
         self.weights = torch.nn.Parameter(torch.rand(11) * 0.8 + 0.2)
