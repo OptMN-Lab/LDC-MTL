@@ -36,7 +36,7 @@ def calc_loss(x_pred, x_output, task_type):
     binary_mask = (torch.sum(x_output, dim=1) != 0).float().unsqueeze(1).to(device)
 
     if task_type == "semantic":
-        # semantic loss: depth-wise cross entropy
+        # semantic loss: depth-wise cross-entropy
         loss = F.nll_loss(x_pred, x_output, ignore_index=-1)
 
     if task_type == "depth":
@@ -134,22 +134,18 @@ def main(path, lr, bs, device):
             )
             loss_list.append(losses.detach().cpu())
     
-            # ratios = 1
+            # tau = w, rescaled normalization
             if (epoch == 0 and j == 0):
                 initial_loss = losses.detach().clone()
                 ratios = initial_loss/initial_loss.min()
                 print(f"\nInitial ratios: {ratios}; weights: {train_pred[3]}", flush=True)
-            # all task rescale version
+            
             weighted_loss = train_pred[3] @ (losses / ratios) / train_pred[3].sum()
             wl = train_pred[3] * (losses / ratios)
             loss_diff = torch.abs(wl[:-1] - wl[1:])
             total_loss = weighted_loss + args.lamb * (torch.sum(loss_diff))
 
             total_loss.backward()
-            if j == 0:
-                grads = [param.grad for param in model.rounter_parameters() if param.grad is not None]
-                gradient_norm = torch.norm(torch.stack([torch.norm(g, p=2) for g in grads]), p=2)
-                print(f"Gradient norm wrt w at x^t:{gradient_norm}")
             optimizer.step()
 
             # accumulate label prediction for every pixel in training images
