@@ -20,7 +20,7 @@ from experiments.utils import (
 )
 from methods.weight_methods import WeightMethods
 
-
+# STL results from https://github.com/Cranial-XIX/FAMO/issues/2
 stl = [0.6736886,  0.68121034, 0.81524944, 0.5760289,  0.7205613,  0.8555076,
  0.38203922, 0.58225113, 0.787647,  0.8321292,  0.5029583,  0.68694085,
  0.6781237,  0.5240381,  0.5161666,  0.95694304, 0.6968786,  0.67976356,
