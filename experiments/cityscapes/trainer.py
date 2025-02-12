@@ -36,7 +36,7 @@ def calc_loss(x_pred, x_output, task_type):
     binary_mask = (torch.sum(x_output, dim=1) != 0).float().unsqueeze(1).to(device)
 
     if task_type == "semantic":
-        # semantic loss: depth-wise cross entropy
+        # semantic loss: depth-wise cross-entropy
         loss = F.nll_loss(x_pred, x_output, ignore_index=-1)
 
     if task_type == "depth":
@@ -181,18 +181,13 @@ def main(path, lr, bs, device):
                     calc_loss(train_pred[1], train_depth, "depth"),
                 )
             )
-            initial_loss = 1
-            if (epoch == 0 and j == 0):
-                initial_loss = losses.detach().clone()
-                ratios = initial_loss / initial_loss.min()
-                print(f"\nInitial ratios: {ratios}; weights: {train_pred[2]}", flush=True)
-            
-            normalized_losses = losses / ratios
-            weighted_loss = train_pred[2] @ normalized_losses
-            wl = train_pred[2] * normalized_losses
-            loss_diff = torch.abs(wl[:-1] - wl[1:])
-            total_loss = args.lamb * torch.sum(loss_diff) + weighted_loss
+
+            # tau = 1 with identical normalization
+            weighted_loss = train_pred[2][0]*losses[0]+train_pred[2][1]*losses[1]
+            diff = torch.abs(losses[0]-losses[1])
+            total_loss = args.lamb * torch.sum(diff) + weighted_loss
             total_loss.backward()
+            
             optimizer.step()
             loss_list.append(losses.detach().cpu())
             
