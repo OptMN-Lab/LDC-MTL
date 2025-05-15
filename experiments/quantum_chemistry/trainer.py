@@ -243,7 +243,7 @@ if __name__ == "__main__":
         n_epochs=300,
         batch_size=120,
         lamb = 0.05,
-        method="bilb4mtl",
+        method="ldc_mtl",
     )
     parser.add_argument("--scale-y", default=True, type=str2bool)
     parser.add_argument("--wandb_project", type=str, default=None, help="Name of Weights & Biases Project.")
