@@ -58,7 +58,7 @@ def main(path, lr, bs, device):
     # ----
     # Nets
     # ---
-    model = dict(segnet=SegNet(), mtan=SegNetMtan(), bilb4mtl=FairSegNetMtan())[args.model]
+    model = dict(segnet=SegNet(), mtan=SegNetMtan(), ldc_mtl=FairSegNetMtan())[args.model]
     model = model.to(device)
 
     # dataset and dataloaders
@@ -313,14 +313,14 @@ if __name__ == "__main__":
         lr=8e-5,
         n_epochs=200,
         batch_size=2,
-        method = "bilb4mtl",
+        method = "ldc_mtl",
         lamb = 0.05,
     )
     parser.add_argument(
         "--model",
         type=str,
-        default="bilb4mtl",
-        choices=["segnet", "mtan", "bilb4mtl"],
+        default="ldc_mtl",
+        choices=["segnet", "mtan", "ldc_mtl"],
         help="model type",
     )
     parser.add_argument(
