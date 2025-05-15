@@ -107,7 +107,7 @@ def main(path, lr, bs, device):
     # ----
     # Nets
     # ---
-    model = dict(segnet=SegNet(), mtan=SegNetMtan(), bilb4mtl=FairSegNetMtan())[args.model]
+    model = dict(segnet=SegNet(), mtan=SegNetMtan(), ldc_mtl=FairSegNetMtan())[args.model]
     prev_model = copy.deepcopy(model)
     model = model.to(device)
     prev_model = prev_model.to(device)
@@ -314,8 +314,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model",
         type=str,
-        default="bilb4mtl",
-        choices=["segnet", "mtan", "bilb4mtl"],
+        default="ldc_mtl",
+        choices=["segnet", "mtan", "ldc_mtl"],
         help="model type",
     )
     parser.add_argument(
