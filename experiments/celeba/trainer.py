@@ -168,7 +168,7 @@ if __name__ == "__main__":
         batch_size=256,
         lamb = 0.01,
         seed = 2,
-        method = "bilb4mtl",
+        method = "ldc_mtl",
     )
     args = parser.parse_args()
 
