@@ -6,7 +6,7 @@ Multi-task learning (MTL) has been widely adopted for its ability to simultaneou
 ---
 
 <p align="center"> 
-    <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/flowchart.png" width="800">
+    <img src="https://github.com/OptMN-Lab/LDC-MTL/blob/main/figs/flowchart.png" width="800">
 </p>
 
 Our bilevel loss balancing pipeline for multi-task learning. First, task losses will be normalized through an initial loss normalization module. Then, the lower-level problem optimizes the model parameter $x^t$ by minimizing the weighted sum of task losses and the upper-level problem optimizes the router model parameter $W^t$ for task balancing.
@@ -14,7 +14,7 @@ Our bilevel loss balancing pipeline for multi-task learning. First, task losses 
 ---
 
 <p align="center"> 
-    <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/toy_example.png" width="800">
+    <img src="https://github.com/OptMN-Lab/LDC-MTL/blob/main/figs/toy_example.png" width="800">
 </p>
 
 The loss trajectories of a toy 2-task learning problem and the runtime comparison of different MTL methods for 50000 steps. ★ on the Pareto front denotes the converge points. Although FAMO achieves more balanced results than LS and MGDA, it converges to different points on the Pareto front. Our method reaches the same balanced point with a computational cost comparable to the simple Linear Scalarization (LS). 
@@ -22,10 +22,26 @@ The loss trajectories of a toy 2-task learning problem and the runtime compariso
 ---
 
 <p align="center"> 
-    <img src="https://github.com/OptMN-Lab/-BiLB4MTL/blob/main/figs/trainingtime_comparison_4datasets.png" width="800">
+    <img src="https://github.com/OptMN-Lab/LDC-MTL/blob/main/figs/trainingtime_comparison_4datasets.png" width="800">
 </p>
 
 Time scale comparison among well-performing approaches, with LS considered the reference method for standard time.
+
+---
+
+<p align="center"> 
+    <img src="https://github.com/OptMN-Lab/LDC-MTL/blob/main/figs/Cityscapes.png" width="800">
+</p>
+
+Results on Cityscapes (2-task) dataset. 
+
+---
+
+<p align="center"> 
+    <img src="https://github.com/OptMN-Lab/LDC-MTL/blob/main/figs/nyu_celeba_qm9.png" width="800">
+</p>
+
+Results on CelebA (40-task), QM9 (11-task), and NYU-v2 (3-task) datasets.
 
 ---
 
@@ -45,8 +61,8 @@ python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113
 ```
 Then, install the repo:
 ```
-https://github.com/OptMN-Lab/-BiLB4MTL.git
-cd -BiLB4MTL
+https://github.com/OptMN-Lab/LDC-MTL.git
+cd LDC-MTL
 python -m pip install -e .
 ```
 
